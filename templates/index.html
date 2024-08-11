@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Collision Data Entry Form</title>
+</head>
+<body>
+    <h1>Collision Data Entry Form</h1>
+    <form action="/result" method="post">
+        <label for="STREET1">Street 1:</label>
+        <input type="text" id="STREET1" name="STREET1" required><br><br>
+
+        <label for="STREET2">Street 2:</label>
+        <input type="text" id="STREET2" name="STREET2"><br><br>
+
+        <label for="ROAD_CLASS">Road Classification:</label>
+        <select id="ROAD_CLASS" name="ROAD_CLASS" required>
+          <option value="" disabled selected>Road Classification</option>
+          <option value="Major Arterial">Major Arterial</option>
+          <option value="Minor Arterial">Minor Arterial</option>
+          <option value="Collector">Collector</option>
+          <option value="Local">Local</option>
+          <option value="Expressway">Expressway</option>
+          <option value="Other">Other</option>
+          <option value="Expressway Ramp">Expressway Ramp</option>
+          <option value="Laneway">Laneway</option>
+          <option value="Pending">Pending</option>
+          <option value="Major Shoreline">Major Shoreline</option>
+      </select>
+      <br><br>
+        <label for="DISTRICT">City District:</label>
+        <select id="DISTRICT" name="DISTRICT" required>
+          <option value="" disabled selected>DISTRICT</option>
+          <option value="Toronto and East York">Toronto and East York</option>
+          <option value="Etobicoke York">Etobicoke York</option>
+          <option value="Scarborough">Scarborough</option>
+          <option value="North York">North York</option>
+      </select>
+      <br><br>
+
+        <label for="ACCLOC">Collision Location:</label>
+        <select id="ACCLOC" name="ACCLOC" required>
+          <option value="" disabled selected>Select a location</option>
+          <option value="At Intersection">At Intersection</option>
+          <option value="Non Intersection">Non Intersection</option>
+          <option value="Intersection Related">Intersection Related</option>
+          <option value="At/Near Private Drive">At/Near Private Drive</option>
+          <option value="Overpass or Bridge">Overpass or Bridge</option>
+          <option value="Laneway">Laneway</option>
+          <option value="Private Driveway">Private Driveway</option>
+          <option value="Other">Other</option>
+          <option value="Underpass or Tunnel">Underpass or Tunnel</option>
+          <option value="Trail">Trail</option>
+          </select>
+        <br><br>
+
+        <label for="TRAFFCTL">Traffic Control Type:</label>
+        <select id="TRAFFCTL" name="TRAFFCTL" required>
+          <option value="" disabled selected>Select a control type</option>
+          <option value="No Control">No Control</option>
+          <option value="Traffic Signal">Traffic Signal</option>
+          <option value="Stop Sign">Stop Sign</option>
+          <option value="Pedestrian Crossover">Pedestrian Crossover</option>
+          <option value="Traffic Controller">Traffic Controller</option>
+          <option value="Yield Sign">Yield Sign</option>
+          <option value="Streetcar (Stop for)">Streetcar (Stop for)</option>
+          <option value="Traffic Gate">Traffic Gate</option>
+          <option value="School Guard">School Guard</option>
+          <option value="Police Control">Police Control</option>
+          </select>
+        <br><br>
+
+        <label for="VISIBILITY">Environment Condition:</label>
+        <select id="VISIBILITY" name="VISIBILITY" required>
+          <option value="" disabled selected>Select a condition</option>
+          <option value="Clear">Clear</option>
+          <option value="Rain">Rain</option>
+          <option value="Snow">Snow</option>
+          <option value="Other">Other</option>
+          <option value="Fog, Mist, Smoke, Dust">Fog, Mist, Smoke, Dust</option>
+          <option value="Freezing Rain">Freezing Rain</option>
+          <option value="Drifting Snow">Drifting Snow</option>
+          <option value="Strong wind">Strong wind</option>
+          </select>
+        <br><br>
+
+        <label for="LIGHT">Light Condition:</label>
+        <select id="LIGHT" name="LIGHT" required>
+          <option value="" disabled selected>Select a condition</option>
+          <option value="Daylight">Daylight</option>
+          <option value="Dark">Dark</option>
+          <option value="Dark, artificial">Dark, artificial</option>
+          <option value="Dusk">Dusk</option>
+          <option value="Dusk, artificial">Dusk, artificial</option>
+          <option value="Daylight, artificial">Daylight, artificial</option>
+          <option value="Dawn">Dawn</option>
+          <option value="Dawn, artificial">Dawn, artificial</option>
+          <option value="Other">Other</option>
+          </select>
+        <br><br>
+
+        <label for="RDSFCOND">Road Surface Condition:</label>
+        <select id="RDSFCOND" name="RDSFCOND" required>
+          <option value="" disabled selected>Select a condition</option>
+          <option value="Dry">Dry</option>
+          <option value="Wet">Wet</option>
+          <option value="Loose Snow">Loose Snow</option>
+          <option value="Other">Other</option>
+          <option value="Slush">Slush</option>
+          <option value="Ice">Ice</option>
+          <option value="Packed Snow">Packed Snow</option>
+          <option value="Loose Sand or Gravel">Loose Sand or Gravel</option>
+          <option value="Spilled liquid">Spilled liquid</option>
+      </select><br><br>
+
+        <label for="IMPACTYPE">Initial Impact Type:</label>
+        <select id="IMPACTYPE" name="IMPACTYPE" required>
+          <option value="" disabled selected>Select an impact type</option>
+          <option value="Pedestrian Collisions">Pedestrian Collisions</option>
+          <option value="Turning Movement">Turning Movement</option>
+          <option value="Cyclist Collisions">Cyclist Collisions</option>
+          <option value="Rear End">Rear End</option>
+          <option value="SMV Other">SMV Other</option>
+          <option value="Angle">Angle</option>
+          <option value="Approaching">Approaching</option>
+          <option value="Sideswipe">Sideswipe</option>
+          <option value="Other">Other</option>
+          <option value="SMV Unattended Vehicle">SMV Unattended Vehicle</option>
+          </select>
+        <br><br>
+
+        <label for="INVTYPE">Involvement Type:</label>
+        <select id="INVTYPE" name="INVTYPE" required>
+          <option value="" disabled selected>Select an involvement type</option>
+          <option value="Driver">Driver</option>
+          <option value="Pedestrian">Pedestrian</option>
+          <option value="Passenger">Passenger</option>
+          <option value="Vehicle Owner">Vehicle Owner</option>
+          <option value="Cyclist">Cyclist</option>
+          <option value="Motorcycle Driver">Motorcycle Driver</option>
+          <option value="Truck Driver">Truck Driver</option>
+          <option value="Other Property Owner">Other Property Owner</option>
+          <option value="Other">Other</option>
+          <option value="Motorcycle Passenger">Motorcycle Passenger</option>
+          <option value="Moped Driver">Moped Driver</option>
+          <option value="Wheelchair">Wheelchair</option>
+          <option value="Driver - Not Hit">Driver - Not Hit</option>
+          <option value="In-Line Skater">In-Line Skater</option>
+          <option value="Cyclist Passenger">Cyclist Passenger</option>
+          <option value="Trailer Owner">Trailer Owner</option>
+          <option value="Pedestrian - Not Hit">Pedestrian - Not Hit</option>
+          <option value="Witness">Witness</option>
+          <option value="Moped Passenger">Moped Passenger</option>
+          </select>
+        <br><br>
+
+        <label for="AUTOMOBILE">Automobile Involved:</label>
+        <input type="checkbox" id="AUTOMOBILE" name="AUTOMOBILE" value="Yes"><br><br>
+
+        <label for="MOTORCYCLE">Motorcycle Involved:</label>
+        <input type="checkbox" id="MOTORCYCLE" name="MOTORCYCLE" value="Yes"><br><br>
+
+        <label for="TRUCK">Truck Involved:</label>
+        <input type="checkbox" id="TRUCK" name="TRUCK" value="Yes"><br><br>
+
+        <label for="TRSN_CITY_VEH">Transit or City Vehicle Involved:</label>
+        <input type="checkbox" id="TRSN_CITY_VEH" name="TRSN_CITY_VEH" value="Yes"><br><br>
+
+        <label for="EMERG_VEH">Emergency Vehicle Involved:</label>
+        <input type="checkbox" id="EMERG_VEH" name="EMERG_VEH" value="Yes"><br><br>
+
+        <label for="PASSENGER">Passenger Involved:</label>
+        <input type="checkbox" id="PASSENGER" name="PASSENGER" value="Yes"><br><br>
+
+        <label for="SPEEDING">Speeding Related:</label>
+        <input type="checkbox" id="SPEEDING" name="SPEEDING" value="Yes"><br><br>
+
+        <label for="AG_DRIV">Aggressive and Distracted Driving:</label>
+        <input type="checkbox" id="AG_DRIV" name="AG_DRIV" value="Yes"><br><br>
+
+        <label for="REDLIGHT">Red Light Related:</label>
+        <input type="checkbox" id="REDLIGHT" name="REDLIGHT" value="Yes"><br><br>
+
+        <label for="ALCOHOL">Alcohol Related:</label>
+        <input type="checkbox" id="ALCOHOL" name="ALCOHOL" value="Yes"><br><br>
+
+        <label for="DISABILITY">Medical or Physical Disability Related:</label>
+        <input type="checkbox" id="DISABILITY" name="DISABILITY" value="Yes"><br><br>
+
+        <label for="NEIGHBOURHOOD_158">City of Toronto Neighbourhood name (new)</label>
+        <input type="text" id="NEIGHBOURHOOD_158" name="NEIGHBOURHOOD_158"><br><br>
+
+        <label for="NEIGHBOURHOOD_140">City of Toronto Neighbourhood name (old)</label>
+        <input type="text" id="NEIGHBOURHOOD_140" name="NEIGHBOURHOOD_140"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

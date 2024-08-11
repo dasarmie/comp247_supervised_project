@@ -14,8 +14,8 @@ from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
 
 # Define the path to the dataset
-file_path = '/Users/ujjwalpoudel/Documents/projects/Fatal-Collisions-Predictions/src/Killed_and_Seriously_Injured.csv'
-
+#file_path = '/Users/ujjwalpoudel/Documents/projects/Fatal-Collisions-Predictions/src/Killed_and_Seriously_Injured.csv'
+file_path = 'D:/vsCode/comp247/final-project/src/Killed_and_Seriously_Injured.csv'
 # Load the dataset
 df_accidents = pd.read_csv(file_path)
 
@@ -77,7 +77,9 @@ plt.show()
 # Drop columns that are not needed for the model
 df_accidents.drop(columns=['INDEX_','ACCNUM','OBJECTID','INVAGE','OFFSET','INITDIR','VEHTYPE','MANOEUVER',
                            'DRIVACT', 'DRIVCOND', 'PEDTYPE', 'PEDACT', 'PEDCOND', 'CYCLISTYPE', 'CYCACT',
-                           'CYCCOND', 'PEDESTRIAN', 'CYCLIST', 'DIVISION','ACCLASS'],
+                           'CYCCOND', 'PEDESTRIAN', 'CYCLIST', 'DIVISION','ACCLASS', 
+                           'LONGITUDE', 'Y', 'HOOD_158', 'DATE', 'TIME',
+      'HOOD_140', 'LATITUDE', 'X', 'FATAL_NO'],
                    inplace=True)
 
 # Separate features and target variable
@@ -170,3 +172,9 @@ y_pred = best_model.predict(X_test)
 
 print("Classification report after tuning:")
 print(classification_report(y_test, y_pred))
+#Dump as pickle files
+import joblib 
+joblib.dump(best_model, 'D:/vsCode/comp247/final-project/best_model.pkl')
+print("Model dumped!")
+joblib.dump(preprocessor,'D:/vsCode/comp247/final-project/preprocessor.pkl')
+print("Pipe dumped!")
