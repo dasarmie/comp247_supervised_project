@@ -142,9 +142,9 @@ param_grid_svc = {
 
 # Initialize GridSearchCV for each model
 grid_searches = {
-    # 'Logistic Regression': GridSearchCV(pipelines['Logistic Regression'], param_grid_lr, cv=5, n_jobs=-1),
+    'Logistic Regression': GridSearchCV(pipelines['Logistic Regression'], param_grid_lr, cv=5, n_jobs=-1),
     'Decision Tree': GridSearchCV(pipelines['Decision Tree'], param_grid_dt, cv=5, n_jobs=-1),
-    # 'SVM': GridSearchCV(pipelines['SVM'], param_grid_svc, cv=5, n_jobs=-1)
+    'SVM': GridSearchCV(pipelines['SVM'], param_grid_svc, cv=5, n_jobs=-1)
 }
 
 # Print feature columns used in training and testing sets
@@ -172,12 +172,9 @@ y_pred = best_model.predict(X_test)
 
 print("Classification report after tuning:")
 print(classification_report(y_test, y_pred))
-
 #Dump as pickle files
 import joblib 
 joblib.dump(best_model, 'D:/vsCode/comp247/final-project/best_model.pkl')
 print("Model dumped!")
 joblib.dump(preprocessor,'D:/vsCode/comp247/final-project/preprocessor.pkl')
 print("Pipe dumped!")
-#joblib.dump(scalar, 'D:/vsCode/comp247/final-project/scalar.pkl')
-#print("Scalar dumped!")
